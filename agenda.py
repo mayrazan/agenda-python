@@ -1,6 +1,7 @@
-agenda = []
-
 class Agenda:
+    def __init__(self):
+        self.agenda = []
+        self.fila = []
 
     def inserir(self):
         nome = input("Insira um nome: ")
@@ -14,7 +15,7 @@ class Agenda:
         lista.append(idade)
         lista.append(telefone)
 
-        agenda.append(lista)
+        self.agenda.append(lista)
 
     def editar(self):
         print("Selecione uma opção: ")
@@ -24,7 +25,7 @@ class Agenda:
 
         if opcao == "1":
             nome = input("Digite o nome: ")
-            for posicao, i in enumerate(agenda): 
+            for posicao, i in enumerate(self.agenda): 
                 for j in i:
                     if nome == j:
                         print("Selecione a opção que você quer editar: ")
@@ -36,24 +37,24 @@ class Agenda:
 
                         if op == "1":
                             a = input("Novo nome: ")
-                            agenda[posicao][0] = a
+                            self.agenda[posicao][0] = a
                             break
                         elif op == "2":
                             b = input("Novo e-mail: ")
-                            agenda[posicao][1] = b  
+                            self.agenda[posicao][1] = b  
                             break
                         elif op == "3":
                             c = input("Nova idade: ")
-                            agenda[posicao][2] = c
+                            self.agenda[posicao][2] = c
                             break
                         elif op == "4":
                             d = input("Novo telefone: ")
-                            agenda[posicao][3] = d
+                            self.agenda[posicao][3] = d
                             break
 
         elif opcao == "2":
             telefone = input("Digite o telefone: ")
-            for posicao, i in enumerate(agenda): 
+            for posicao, i in enumerate(self.agenda): 
                 for j in i:
                     if telefone == j:
                         print("Selecione a opção que você quer editar: ")
@@ -65,19 +66,19 @@ class Agenda:
 
                         if op == "1":
                             a = input("Novo nome: ")
-                            agenda[posicao][0] = a
+                            self.agenda[posicao][0] = a
                             break
                         elif op == "2":
                             b = input("Novo e-mail: ")
-                            agenda[posicao][1] = b  
+                            self.agenda[posicao][1] = b  
                             break
                         elif op == "3":
                             c = input("Nova idade: ")
-                            agenda[posicao][2] = c
+                            self.agenda[posicao][2] = c
                             break
                         elif op == "4":
                             d = input("Novo telefone: ")
-                            agenda[posicao][3] = d
+                            self.agenda[posicao][3] = d
                             break
 
     def excluir(self):
@@ -88,24 +89,24 @@ class Agenda:
 
         if opcao == "1":
             nome = input("Digite o nome: ")
-            for posicao, i in enumerate(agenda):
+            for posicao, i in enumerate(self.agenda):
                 for j in i:
                     if nome == j:
-                        agenda.pop(posicao)
+                        self.agenda.pop(posicao)
                         break
         elif opcao == "2":
             telefone = input("Digite o telefone: ")
-            for posicao, i in enumerate(agenda):
+            for posicao, i in enumerate(self.agenda):
                 for j in i:
                     if telefone == j:
-                        agenda.pop(posicao)  
+                        self.agenda.pop(posicao)  
                         break 
 
     def exibir(self):
-        if len(agenda) == 0:
+        if len(self.agenda) == 0:
             print("Agenda vazia.")
         else:
-            print(agenda)
+            print(self.agenda)
 
     def buscar(self):
         print("Selecione uma opção: ")
@@ -115,16 +116,30 @@ class Agenda:
 
         if opcao == "1":
             nome = input("Digite o nome: ")
-            for posicao, i in enumerate(agenda): 
+            for posicao, i in enumerate(self.agenda): 
                 for j in i:
                     if nome == j:
                         print(i)
+                        self.contatos_acessados(i)
                         break
         elif opcao == "2":
             telefone = input("Digite o telefone: ")
-            for posicao, i in enumerate(agenda): 
+            for posicao, i in enumerate(self.agenda): 
                 for j in i:
                     if telefone == j:
                         print(i)
+                        self.contatos_acessados(i)
                         break  
 
+    def contatos_acessados(self, contato):
+        if len(self.fila) < 5:
+            self.fila.append(contato)
+        else:
+            self.fila.pop(0)
+            self.fila.append(contato)
+
+    def ultimos_acessados(self):
+        if len(self.fila) == 0:
+            print("Nenhum contato buscado.")
+        else:
+            print(self.fila)

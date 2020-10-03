@@ -10,6 +10,7 @@ class Menu:
         print("3. Excluir contato: ")
         print("4. Exibir contatos: ")
         print("5. Buscar contato: ")
+        print("6. Acessados recentemente: ")
         print("0. Sair. ")
         opcao = input("> ")
 
@@ -28,9 +29,12 @@ class Menu:
         while opcao == "5":
             a.buscar()
             self.menu()
+        while opcao == "6":
+            a.ultimos_acessados()
+            self.menu()
         while opcao == "0":
             sys.exit()
-        if opcao > "5" or opcao < "0":
+        if opcao > "6" or opcao < "0":
             print("Opção inválida.")
 
 a = Agenda()
