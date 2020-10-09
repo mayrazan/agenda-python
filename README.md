@@ -25,6 +25,13 @@ estrutura de dados do tipo fila. Sendo que, quando a fila estiver cheia
 com 5 usuários, e precisar adicionar um novo no final da fila, deve ser
 retirado o primeiro da fila.
 
+◦ 7 – Ordenar contatos
+
+• Para esse novo item do menu deve ser criado uma função que
+implementa a ordenação por seleção. Deve dar a possibilidade ao
+usuário de escolher ordenar por nome ou idade. Toda a lista telefônica
+será ordenada.
+
 ◦ 0 – Sair
 
 • Dados: Deve armazenar em uma lista, contendo os dados:

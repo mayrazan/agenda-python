@@ -143,3 +143,29 @@ class Agenda:
             print("Nenhum contato buscado.")
         else:
             print(self.fila)
+    
+    def ordenar_contatos(self, lista):
+        print("Selecione uma opção: ")
+        print("1. Ordenar por nome: ")
+        print("2. Ordenar por idade: ")
+        opcao = input("> ")
+ 
+        if opcao == "1":
+            for i in range(len(lista)):       
+                menor = i
+                for j in range(i, len(lista)):
+                    if lista[j][0] < lista[menor][0]:
+                        menor = j
+                (lista[i], lista[menor]) = (lista[menor], lista[i])
+            return lista
+        elif opcao == "2":
+            for i in range(len(lista)):       
+                menor = i
+                for j in range(i, len(lista)):
+                    if lista[j][2] < lista[menor][2]:
+                        menor = j
+                (lista[i], lista[menor]) = (lista[menor], lista[i])
+            return lista
+    
+    def ordenar(self):
+        print(self.ordenar_contatos(self.agenda))
