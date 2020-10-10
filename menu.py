@@ -12,6 +12,7 @@ class Menu:
         print("5. Buscar contato: ")
         print("6. Acessados recentemente: ")
         print("7. Ordenar contatos: ")
+        print("8. Busca binária: ")
         print("0. Sair. ")
         opcao = input("> ")
 
@@ -36,9 +37,13 @@ class Menu:
         while opcao == "7":
             a.ordenar()
             self.menu()
+        while opcao == "8":
+            a.ordenar()
+            a.busca_binaria()
+            self.menu()
         while opcao == "0":
             sys.exit()
-        if opcao > "7" or opcao < "0":
+        if opcao > "8" or opcao < "0":
             print("Opção inválida.")
 
 a = Agenda()

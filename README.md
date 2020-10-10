@@ -32,6 +32,13 @@ implementa a ordenação por seleção. Deve dar a possibilidade ao
 usuário de escolher ordenar por nome ou idade. Toda a lista telefônica
 será ordenada.
 
+◦ 8 – Busca binária
+
+• Para esse novo item do menu deve ser criado uma função que
+implementa a busca binária. Deve dar a possibilidade ao usuário de
+escolher buscar por nome ou idade. Para isso a lista telefônica deverá
+estar ordenada pelo item escolhido.
+
 ◦ 0 – Sair
 
 • Dados: Deve armazenar em uma lista, contendo os dados:

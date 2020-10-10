@@ -44,7 +44,7 @@ class Agenda:
                             self.agenda[posicao][1] = b  
                             break
                         elif op == "3":
-                            c = input("Nova idade: ")
+                            c = int(input("Nova idade: "))
                             self.agenda[posicao][2] = c
                             break
                         elif op == "4":
@@ -73,7 +73,7 @@ class Agenda:
                             self.agenda[posicao][1] = b  
                             break
                         elif op == "3":
-                            c = input("Nova idade: ")
+                            c = int(input("Nova idade: "))
                             self.agenda[posicao][2] = c
                             break
                         elif op == "4":
@@ -169,3 +169,53 @@ class Agenda:
     
     def ordenar(self):
         print(self.ordenar_contatos(self.agenda))
+    
+    def busca_binaria(self):
+        print("Selecione uma opção: ")
+        print("1. Buscar contato por nome: ")
+        print("2. Buscar contato por idade: ")
+        opcao = input("> ")
+        #ini = 0
+        #fim = len(self.agenda)-1
+        #while ini <= fim:
+            #meio = (ini + fim)
+                    
+        if opcao == "1":
+            nome = input("Digite o nome: ")
+            for i in range(len(self.agenda)):
+                ini = i
+                for j in range(i, len(self.agenda)-1):
+                    fim = j - 1
+                    meio = (ini + fim)
+                    print("meio ",meio)
+                    if self.agenda[meio][0] == nome:
+                        print("Sucesso: %r encontrado" %nome)
+                        return meio
+                    elif self.agenda[j][0] < nome:
+                        ini = meio + 1
+                        print("ini ", ini)
+                    else:
+                        fim = meio - 1
+                        print("fim ", fim)
+            print("Não encontrado")
+            return -1
+        elif opcao == "2":
+            idade = int(input("Digite a idade: "))
+            for i in range(len(self.agenda)):
+                ini = i
+                for j in range(i, len(self.agenda)-1):
+                    fim = j - 1
+                    meio = (ini + fim)
+                    print("meio ", meio)
+                    if self.agenda[meio][2] == idade:
+                        print("Sucesso: %r encontrado" %idade)
+                        return meio
+                    elif self.agenda[j][2] < idade:
+                        ini = meio + 1
+                        print("ini ", ini)
+                    else:
+                        fim = meio - 1
+                        print("fim ", fim)
+            print("Não encontrado")
+            return -1
+
