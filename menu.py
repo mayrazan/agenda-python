@@ -38,7 +38,6 @@ class Menu:
             a.ordenar()
             self.menu()
         while opcao == "8":
-            a.ordenar()
             a.busca_binaria()
             self.menu()
         while opcao == "0":
